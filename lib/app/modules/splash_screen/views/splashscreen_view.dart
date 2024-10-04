@@ -119,9 +119,7 @@ class SplashScreenView extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer(
-              flex:
-                  3), // Spacer lebih besar di bagian bawah untuk menaikkan tombol
+          const Spacer(flex: 3),
         ],
       ),
     );
