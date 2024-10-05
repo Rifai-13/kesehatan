@@ -256,7 +256,7 @@ class ProfileView extends GetView<ProfileController> {
             ),
           ),
           Positioned(
-            top: 400,
+            top: 390,
             left: 16,
             right: 16,
             child: Column(
@@ -374,20 +374,19 @@ class ProfileView extends GetView<ProfileController> {
                   color: Colors.grey[300], // Warna garis abu-abu
                 ),
                 const SizedBox(
-                    height: 16), // Jarak sebelum teks Riwayat Penyakit
+                    height: 15), // Jarak sebelum teks Riwayat Penyakit
                 // Teks Riwayat Penyakit
               ],
             ),
           ),
-
           Positioned(
-            top: 540,
+            top: 520,
             left: 30,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Riwayat Penyakit',
+                  'Riwayat Kesehatan',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -400,49 +399,49 @@ class ProfileView extends GetView<ProfileController> {
                   height: 4, // ketebalan garis
                   color: const Color(0xFF3C887E), // warna hijau sesuai tema
                 ),
-                const SizedBox(height: 8), // Jarak antara garis dan lingkaran
+              ],
+            ),
+          ),
+          Positioned(
+            top: 550, // Posisi awal dari Container ini
+            left: 16,
+            right: 16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20), // Jarak antara garis dan lingkaran
+                // Elemen gambar dan label
                 Row(
-                  mainAxisAlignment: MainAxisAlignment
-                      .spaceAround, // Mengatur posisi lingkaran
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: List.generate(4, (index) {
                     // Daftar gambar yang ingin digunakan
                     final List<String> imageAssets = [
-                      'assets/image/TBC.png', // Gambar untuk lingkaran pertama
-                      'assets/image/DEMAM BERDARAH.png', // Gambar untuk lingkaran kedua
-                      'assets/image/ASMA.png', // Gambar untuk lingkaran ketiga
-                      'assets/image/OBESITAS.png', // Gambar untuk lingkaran keempat
+                      'assets/image/TBC.png',
+                      'assets/image/DEMAM BERDARAH.png',
+                      'assets/image/ASMA.png',
+                      'assets/image/OBESITAS.png',
                     ];
 
-                    final List<double> imageSizes = [
-                      35.0, // Ukuran untuk gambar pertama
-                      38.0, // Ukuran untuk gambar kedua
-                      35.0, // Ukuran untuk gambar ketiga
-                      38.0, // Ukuran untuk gambar keempat
-                    ];
+                    final List<double> imageSizes = [35.0, 38.0, 35.0, 38.0];
 
                     // Daftar teks yang ingin ditampilkan di bawah gambar
                     final List<String> labels = [
-                      'TBC', // Teks untuk lingkaran pertama
-                      'DBD', // Teks untuk lingkaran kedua
-                      'Asma', // Teks untuk lingkaran ketiga
-                      'Obesitas', // Teks untuk lingkaran keempat
+                      'TBC',
+                      'DBD',
+                      'Asma',
+                      'Obesitas',
                     ];
 
-                    final imageAsset =
-                        imageAssets[index]; // Mengambil gambar sesuai index
-                    final double imageSize = imageSizes[
-                        index]; // Mengambil ukuran gambar sesuai index
-                    final String label =
-                        labels[index]; // Mengambil teks sesuai index
+                    final imageAsset = imageAssets[index];
+                    final double imageSize = imageSizes[index];
+                    final String label = labels[index];
 
                     return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal:
-                                  8.0), // Jarak horizontal antar lingkaran
-                          width: 60.0, // Ukuran lingkaran
-                          height: 60.0, // Ukuran lingkaran
+                          width: 60.0, // Ukuran lingkaran hijau tetap
+                          height: 60.0, // Ukuran lingkaran hijau tetap
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color(
@@ -450,64 +449,66 @@ class ProfileView extends GetView<ProfileController> {
                           ),
                           child: ClipOval(
                             child: Container(
-                              width: 60.0, // Ukuran lingkaran
-                              height: 60.0, // Ukuran lingkaran
+                              width: 60.0,
+                              height: 60.0,
                               alignment: Alignment
                                   .center, // Memastikan gambar terpusat
                               color: Colors.transparent,
                               child: Image.asset(
-                                imageAsset, // Menggunakan gambar dari daftar
+                                imageAsset,
                                 fit: BoxFit.cover,
-                                width:
-                                    imageSize, // Menentukan ukuran gambar sesuai index
-                                height:
-                                    imageSize, // Menentukan ukuran gambar sesuai index
+                                width: imageSize,
+                                height: imageSize,
                               ),
                             ),
                           ),
                         ),
                         const SizedBox(
-                            height: 4), // Jarak antara gambar dan teks
+                            height: 8), // Jarak antara gambar dan teks
                         Text(
                           label,
                           style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight:
-                                FontWeight.bold, // Mengatur teks menjadi tebal
-                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     );
                   }),
                 ),
-                const SizedBox(
-                    height: 16), // Jarak antara lingkaran dan teks "Lainnya"
+                const SizedBox(height: 15), // Jarak sebelum teks "Lainnya"
+
+                // Elemen untuk teks "Lainnya"
                 Container(
-                  // Menggunakan Container untuk mengatur posisi "Lainnya"
-                  margin: const EdgeInsets.symmetric(
-                      horizontal: 115), // Mengatur jarak kiri dan kanan
+                  margin: const EdgeInsets.symmetric(horizontal: 115),
                   child: const Row(
-                    mainAxisSize: MainAxisSize
-                        .min, // Menggunakan ukuran minimum agar Row tidak memenuhi ruang
-                    mainAxisAlignment: MainAxisAlignment
-                        .center, // Mengatur posisi Row di tengah
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Lainnya',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF3C887E), // Warna hijau
+                          color: Color(0xFF3C887E),
                         ),
                       ),
-                      SizedBox(width: 4), // Jarak antara teks dan ikon
+                      SizedBox(width: 4),
                       Icon(
-                        Icons.keyboard_arrow_down, // Ikon panah bawah
-                        color: Color(0xFF3C887E), // Warna hijau
+                        Icons.keyboard_arrow_down,
+                        color: Color(0xFF3C887E),
                       ),
                     ],
                   ),
+                ),
+
+                const SizedBox(height: 8), // Jarak sebelum garis
+
+                // Garis pemisah memanjang ke samping
+                Container(
+                  height: 5, // Tinggi garis
+                  width: double.infinity, // Lebar garis (memanjang penuh)
+                  color: Colors.grey[300], // Warna garis abu-abu
                 ),
               ],
             ),
